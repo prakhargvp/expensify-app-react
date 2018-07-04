@@ -48,30 +48,6 @@ const unsubscribe = store.subscribe(() => {
 // });
 
 store.dispatch(incrementCount({ incrementBy: 5 }));
-
-
-// store.dispatch({
-// 	type: 'DECREMENT',
-// 	decrementBy: 2
-// });
-
 store.dispatch(decrementCount({ decrementBy: 2 }));
-
-
-
-store.dispatch({
-	type: 'RESET'
-});
-
-// Or
-
 store.dispatch(resetCount());
-
-store.dispatch({
-	type: 'SET',
-	count: 2
-});
-
-// Or 
-
 store.dispatch(setCount({ count: 3 }));
