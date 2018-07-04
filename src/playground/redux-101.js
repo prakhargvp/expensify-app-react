@@ -14,7 +14,11 @@ const store = createStore((state = { count: 0 }, action) => {
 	}
 });
 
-console.log(store.getState());
+
+store.subscribe(() => {
+	// call everytime when data changes
+	console.log(store.getState());
+});
 
 store.dispatch({
 	type: 'INCREMENT'
@@ -28,4 +32,3 @@ store.dispatch({
 	type: 'DECREMENT'
 });
 
-console.log(store.getState());
