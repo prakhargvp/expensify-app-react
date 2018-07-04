@@ -8,6 +8,9 @@ const store = createStore((state = { count: 0 }, action) => {
 		case 'DECREMENT':
 			const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
 			return { count: state.count - decrementBy };
+		case 'SET':
+			const count = typeof action.count === 'number' ? action.count : 1;
+			return { count: count};
 		case 'RESET':
 			return { count: 0 };
 		default:
@@ -36,3 +39,7 @@ store.dispatch({
 	decrementBy: 2
 });
 
+store.dispatch({
+	type: 'SET',
+	count: 2
+});
