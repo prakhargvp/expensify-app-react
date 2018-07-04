@@ -1,7 +1,6 @@
 import { createStore } from 'redux';
 
 const store = createStore((state = { count: 0 }, action) => {
-	console.log(action.type);
 	switch(action.type){
 		case 'INCREMENT':
 			return { count: state.count + 1};
@@ -15,7 +14,7 @@ const store = createStore((state = { count: 0 }, action) => {
 });
 
 
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
 	// call everytime when data changes
 	console.log(store.getState());
 });
@@ -23,6 +22,8 @@ store.subscribe(() => {
 store.dispatch({
 	type: 'INCREMENT'
 });
+
+unsubscribe();
 
 store.dispatch({
 	type: 'RESET'
